@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import getUserName from '../index.js';
+import { getUserName } from '../index.js';
 
 getUserName();
