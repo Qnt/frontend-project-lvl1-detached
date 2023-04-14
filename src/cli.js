@@ -6,7 +6,9 @@ const getUserName = () => {
   const questionAskingName = 'May I have your name? ';
 
   console.log(initMessage);
-  console.log(`${greeting}, ${readlineSync.question(questionAskingName)}`);
+  const userName = readlineSync.question(questionAskingName);
+  console.log(`${greeting}, ${userName}`);
+  return userName;
 };
 
 export default getUserName;
