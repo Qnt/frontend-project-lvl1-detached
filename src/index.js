@@ -2,6 +2,7 @@ import readlineSync from 'readline-sync';
 import getUserName from './cli.js';
 import * as brainEven from './games/brain-even-logic.js';
 import * as brainCalc from './games/brain-calc-logic.js';
+import * as brainGCD from './games/brain-gcd-logic.js';
 
 const showGameRuleMessage = (gameType) => {
   switch (gameType) {
@@ -10,6 +11,9 @@ const showGameRuleMessage = (gameType) => {
       break;
     case 'brain-calc':
       console.log('What is the result of the expression?');
+      break;
+    case 'brain-gcd':
+      console.log('Find the greatest common divisor of given numbers.');
       break;
     default:
       break;
@@ -51,6 +55,8 @@ const generateQuestionAndAnswer = (gameType) => {
       return brainEven.default();
     case 'brain-calc':
       return brainCalc.default();
+    case 'brain-gcd':
+      return brainGCD.default();
     default:
       return [];
   }
