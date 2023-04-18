@@ -3,6 +3,7 @@ import getUserName from './cli.js';
 import * as brainEven from './games/brain-even-logic.js';
 import * as brainCalc from './games/brain-calc-logic.js';
 import * as brainGCD from './games/brain-gcd-logic.js';
+import * as brainProgression from './games/brain-progression-logic.js';
 
 const showGameRuleMessage = (gameType) => {
   switch (gameType) {
@@ -14,6 +15,9 @@ const showGameRuleMessage = (gameType) => {
       break;
     case 'brain-gcd':
       console.log('Find the greatest common divisor of given numbers.');
+      break;
+    case 'brain-progression':
+      console.log('What number is missing in the progression?');
       break;
     default:
       break;
@@ -35,7 +39,7 @@ const isUserAnswerCorrect = (userAnswer, correctAnswer) =>
   userAnswer === correctAnswer;
 
 const showConrrectUserAnswerMessage = () => {
-  const correctUserAnswerMessage = 'Correct';
+  const correctUserAnswerMessage = 'Correct!';
   console.log(correctUserAnswerMessage);
 };
 
@@ -57,6 +61,8 @@ const generateQuestionAndAnswer = (gameType) => {
       return brainCalc.default();
     case 'brain-gcd':
       return brainGCD.default();
+    case 'brain-progression':
+      return brainProgression.default();
     default:
       return [];
   }
