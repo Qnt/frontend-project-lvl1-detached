@@ -4,20 +4,24 @@ import * as brainEven from './games/brain-even-logic.js';
 import * as brainCalc from './games/brain-calc-logic.js';
 import * as brainGCD from './games/brain-gcd-logic.js';
 import * as brainProgression from './games/brain-progression-logic.js';
+import * as brainPrime from './games/brain-prime-logic.js';
 
 const showGameRuleMessage = (gameType) => {
   switch (gameType) {
     case 'brain-even':
-      console.log('Answer "yes" if the number is even, otherwise answer "no".');
+      console.log(brainEven.getGameRule());
       break;
     case 'brain-calc':
-      console.log('What is the result of the expression?');
+      console.log(brainCalc.getGameRule());
       break;
     case 'brain-gcd':
-      console.log('Find the greatest common divisor of given numbers.');
+      console.log(brainGCD.getGameRule());
       break;
     case 'brain-progression':
-      console.log('What number is missing in the progression?');
+      console.log(brainProgression.getGameRule());
+      break;
+    case 'brain-prime':
+      console.log(brainPrime.getGameRule());
       break;
     default:
       break;
@@ -56,13 +60,15 @@ const showConsgratulationMessage = (userName) => {
 const generateQuestionAndAnswer = (gameType) => {
   switch (gameType) {
     case 'brain-even':
-      return brainEven.default();
+      return brainEven.generateQuestionAndAnswer();
     case 'brain-calc':
-      return brainCalc.default();
+      return brainCalc.generateQuestionAndAnswer();
     case 'brain-gcd':
-      return brainGCD.default();
+      return brainGCD.generateQuestionAndAnswer();
     case 'brain-progression':
-      return brainProgression.default();
+      return brainProgression.generateQuestionAndAnswer();
+    case 'brain-prime':
+      return brainPrime.generateQuestionAndAnswer();
     default:
       return [];
   }

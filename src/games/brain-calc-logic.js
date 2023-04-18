@@ -1,5 +1,7 @@
 import getRandomNumber from '../random.js';
 
+const getGameRule = () => 'What is the result of the expression?';
+
 const generateQuestion = () => {
   const operators = ['+', '-', '*'];
   const operator = operators[getRandomNumber(operators.length)];
@@ -33,4 +35,4 @@ const generateQuestionAndAnswer = () => {
   return [question, correctAnswer];
 };
 
-export default generateQuestionAndAnswer;
+export { getGameRule, generateQuestionAndAnswer };

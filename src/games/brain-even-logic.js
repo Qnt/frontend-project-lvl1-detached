@@ -1,5 +1,8 @@
 import getRandomNumber from '../random.js';
 
+const getGameRule = () =>
+  'Answer "yes" if the number is even, otherwise answer "no".';
+
 const generateQuestionAndAnswer = () => {
   const yes = 'yes';
   const no = 'no';
@@ -8,4 +11,4 @@ const generateQuestionAndAnswer = () => {
   return [number, answer];
 };
 
-export default generateQuestionAndAnswer;
+export { getGameRule, generateQuestionAndAnswer };

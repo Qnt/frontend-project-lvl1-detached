@@ -1,5 +1,7 @@
 import getRandomNumber from '../random.js';
 
+const getGameRule = () => 'Find the greatest common divisor of given numbers.';
+
 const generateQuestion = () =>
   `${getRandomNumber(100)} ${getRandomNumber(100)}`;
 
@@ -21,4 +23,4 @@ const generateQuestionAndAnswer = () => {
   return [question, generateCorrectAnswer(question)];
 };
 
-export default generateQuestionAndAnswer;
+export { getGameRule, generateQuestionAndAnswer };

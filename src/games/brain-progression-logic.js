@@ -1,5 +1,7 @@
 import getRandomNumber from '../random.js';
 
+const getGameRule = () => 'What number is missing in the progression?';
+
 const generateQuestionAndAnswer = () => {
   const separator = ', ';
   const blank = '..';
@@ -17,4 +19,4 @@ const generateQuestionAndAnswer = () => {
   return [progression.join(separator), correctAnswer];
 };
 
-export default generateQuestionAndAnswer;
+export { getGameRule, generateQuestionAndAnswer };
