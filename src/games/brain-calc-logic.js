@@ -1,38 +1,31 @@
+import brainGameEngine from '../index.js';
 import getRandomNumber from '../random.js';
 
-const getGameRule = () => 'What is the result of the expression?';
+const gameRule = 'What is the result of the expression?';
 
-const generateQuestion = () => {
+const generateRoundData = () => {
   const operators = ['+', '-', '*'];
   const operator = operators[getRandomNumber(operators.length)];
-  return `${getRandomNumber()} ${operator} ${getRandomNumber()}`;
-};
-
-const generateCorrectAnswer = (question) => {
-  const questionSplitter = question.split(' ');
-  const firstOperandIndex = 0;
-  const operatorIndex = 1;
-  const secondOperandIndex = 2;
-  const operator = questionSplitter[operatorIndex];
-  const firstOperand = Number(questionSplitter[firstOperandIndex]);
-  const secondOperand = Number(questionSplitter[secondOperandIndex]);
+  const firstOperand = getRandomNumber();
+  const secondOperand = getRandomNumber();
+  const question = `${firstOperand} ${operator} ${secondOperand}`;
+  let correctAnswer = null;
   switch (operator) {
     case '+':
-      return (firstOperand + secondOperand).toString();
+      correctAnswer = (firstOperand + secondOperand).toString();
+      break;
     case '-':
-      return (firstOperand - secondOperand).toString();
+      correctAnswer = (firstOperand - secondOperand).toString();
+      break;
     case '*':
-      return (firstOperand * secondOperand).toString();
+      correctAnswer = (firstOperand * secondOperand).toString();
+      break;
     default:
-      return '';
+      break;
   }
-};
-
-const generateQuestionAndAnswer = () => {
-  const question = generateQuestion();
-  const correctAnswer = generateCorrectAnswer(question);
-
   return [question, correctAnswer];
 };
 
-export { getGameRule, generateQuestionAndAnswer };
+const runBrainCalc = () => brainGameEngine(gameRule, generateRoundData);
+
+export default runBrainCalc;

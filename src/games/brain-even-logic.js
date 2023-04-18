@@ -1,14 +1,14 @@
 import getRandomNumber from '../random.js';
+import brainGameEngine from '../index.js';
 
-const getGameRule = () =>
-  'Answer "yes" if the number is even, otherwise answer "no".';
+const gameRule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const generateQuestionAndAnswer = () => {
-  const yes = 'yes';
-  const no = 'no';
+const generateRoundData = () => {
   const number = getRandomNumber();
-  const answer = number % 2 === 0 ? yes : no;
-  return [number, answer];
+  const correctAnswer = number % 2 === 0 ? 'yes' : 'no';
+  return [number, correctAnswer];
 };
 
-export { getGameRule, generateQuestionAndAnswer };
+const runBrainEven = () => brainGameEngine(gameRule, generateRoundData);
+
+export default runBrainEven;

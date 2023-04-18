@@ -1,32 +1,5 @@
 import readlineSync from 'readline-sync';
 import getUserName from './cli.js';
-import * as brainEven from './games/brain-even-logic.js';
-import * as brainCalc from './games/brain-calc-logic.js';
-import * as brainGCD from './games/brain-gcd-logic.js';
-import * as brainProgression from './games/brain-progression-logic.js';
-import * as brainPrime from './games/brain-prime-logic.js';
-
-const showGameRuleMessage = (gameType) => {
-  switch (gameType) {
-    case 'brain-even':
-      console.log(brainEven.getGameRule());
-      break;
-    case 'brain-calc':
-      console.log(brainCalc.getGameRule());
-      break;
-    case 'brain-gcd':
-      console.log(brainGCD.getGameRule());
-      break;
-    case 'brain-progression':
-      console.log(brainProgression.getGameRule());
-      break;
-    case 'brain-prime':
-      console.log(brainPrime.getGameRule());
-      break;
-    default:
-      break;
-  }
-};
 
 const showQuestionMessage = (question) => {
   const questionMessage = 'Question:';
@@ -38,9 +11,6 @@ const getUserAnswer = () => {
   const userAnswer = readlineSync.question(questionAskingAnswer);
   return userAnswer;
 };
-
-const isUserAnswerCorrect = (userAnswer, correctAnswer) =>
-  userAnswer === correctAnswer;
 
 const showConrrectUserAnswerMessage = () => {
   const correctUserAnswerMessage = 'Correct!';
@@ -57,33 +27,16 @@ const showConsgratulationMessage = (userName) => {
   console.log(`${congratulationMessage}, ${userName}!`);
 };
 
-const generateQuestionAndAnswer = (gameType) => {
-  switch (gameType) {
-    case 'brain-even':
-      return brainEven.generateQuestionAndAnswer();
-    case 'brain-calc':
-      return brainCalc.generateQuestionAndAnswer();
-    case 'brain-gcd':
-      return brainGCD.generateQuestionAndAnswer();
-    case 'brain-progression':
-      return brainProgression.generateQuestionAndAnswer();
-    case 'brain-prime':
-      return brainPrime.generateQuestionAndAnswer();
-    default:
-      return [];
-  }
-};
-
-const runBrainGame = (gameType) => {
+const brainGameEngine = (gameRule, generateRoundData) => {
   const roundCount = 3;
   const userName = getUserName();
 
-  showGameRuleMessage(gameType);
+  console.log(gameRule);
   for (let round = 0; round < roundCount; round += 1) {
-    const [question, correctAnswer] = generateQuestionAndAnswer(gameType);
+    const [question, correctAnswer] = generateRoundData();
     showQuestionMessage(question);
     const userAnswer = getUserAnswer();
-    if (!isUserAnswerCorrect(userAnswer, correctAnswer)) {
+    if (userAnswer !== correctAnswer) {
       showGameOverMessage(userAnswer, correctAnswer, userName);
       break;
     }
@@ -94,4 +47,4 @@ const runBrainGame = (gameType) => {
   }
 };
 
-export default runBrainGame;
+export default brainGameEngine;

@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import runBrainGame from '../src/index.js';
+import runBrainEven from '../src/games/brain-even-logic.js';
 
-runBrainGame('brain-even');
+runBrainEven();

@@ -1,8 +1,9 @@
+import brainGameEngine from '../index.js';
 import getRandomNumber from '../random.js';
 
-const getGameRule = () => 'What number is missing in the progression?';
+const gameRule = 'What number is missing in the progression?';
 
-const generateQuestionAndAnswer = () => {
+const generateRoundData = () => {
   const separator = ', ';
   const blank = '..';
   const progression = [getRandomNumber()];
@@ -19,4 +20,6 @@ const generateQuestionAndAnswer = () => {
   return [progression.join(separator), correctAnswer];
 };
 
-export { getGameRule, generateQuestionAndAnswer };
+const runBrainProgression = () => brainGameEngine(gameRule, generateRoundData);
+
+export default runBrainProgression;

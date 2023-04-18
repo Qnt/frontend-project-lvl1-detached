@@ -1,11 +1,12 @@
+import brainGameEngine from '../index.js';
 import getRandomNumber from '../random.js';
 
-const getGameRule = () =>
+const gameRule =
   'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
   if (number < 2) return false;
-  for (let i = 2; i < number; i += 1) {
+  for (let i = 2; i <= Math.sqrt(number); i += 1) {
     if (number % i === 0) {
       return false;
     }
@@ -13,12 +14,12 @@ const isPrime = (number) => {
   return true;
 };
 
-const generateQuestionAndAnswer = () => {
-  const yes = 'yes';
-  const no = 'no';
+const generateRoundData = () => {
   const number = getRandomNumber();
-  const correctAnswer = isPrime(number) ? yes : no;
+  const correctAnswer = isPrime(number) ? 'yes' : 'no';
   return [number.toString(), correctAnswer];
 };
 
-export { getGameRule, generateQuestionAndAnswer };
+const runBrainPrime = () => brainGameEngine(gameRule, generateRoundData);
+
+export default runBrainPrime;
