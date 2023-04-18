@@ -1,6 +1,17 @@
 # BRAIN GAMES
 
+---
+
 [![Maintainability](https://api.codeclimate.com/v1/badges/bacde5e8e47a04b257d5/maintainability)](https://codeclimate.com/github/Qnt/frontend-project-lvl1-detached/maintainability)
+
+---
+
+- **Brain-Even**. The game asks you to determin whether a number is even or odd.
+- **Brain-Calc**. Calculator.
+The game asks you to calculate an arithmetic expression.
+- **Brain-GCD**. The game asks you to find the greatest common divisor.
+- **Brain-Progression**. The game asks you to find missing number in a sequence of numbers.
+- **Brain-Prime**. The game asks you to determin whether a number is a prime or not.
 
 ---
 
